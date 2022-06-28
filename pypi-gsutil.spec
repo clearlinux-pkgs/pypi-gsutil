@@ -4,7 +4,7 @@
 #
 Name     : pypi-gsutil
 Version  : 5.10
-Release  : 81
+Release  : 82
 URL      : https://files.pythonhosted.org/packages/ed/fd/7a598323177f33db5296c36f74045020893e02cafcba05afa485829e5688/gsutil-5.10.tar.gz
 Source0  : https://files.pythonhosted.org/packages/ed/fd/7a598323177f33db5296c36f74045020893e02cafcba05afa485829e5688/gsutil-5.10.tar.gz
 Summary  : A command line tool for interacting with cloud storage services.
@@ -112,7 +112,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1653334806
+export SOURCE_DATE_EPOCH=1656379737
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -153,7 +153,7 @@ popd
 sitedir=$(python -c "import sys; print(sys.path[-1])")
 rm -rfv %{buildroot}/${sitedir}/test
 ## install_append end
-/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
