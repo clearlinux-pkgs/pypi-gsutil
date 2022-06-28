@@ -4,7 +4,7 @@
 #
 Name     : pypi-gsutil
 Version  : 5.10
-Release  : 82
+Release  : 83
 URL      : https://files.pythonhosted.org/packages/ed/fd/7a598323177f33db5296c36f74045020893e02cafcba05afa485829e5688/gsutil-5.10.tar.gz
 Source0  : https://files.pythonhosted.org/packages/ed/fd/7a598323177f33db5296c36f74045020893e02cafcba05afa485829e5688/gsutil-5.10.tar.gz
 Summary  : A command line tool for interacting with cloud storage services.
@@ -112,7 +112,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656379737
+export SOURCE_DATE_EPOCH=1656402297
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
