@@ -4,7 +4,7 @@
 #
 Name     : pypi-gsutil
 Version  : 5.12
-Release  : 87
+Release  : 88
 URL      : https://files.pythonhosted.org/packages/91/49/505783675656ecc32c02efc22492b4d367e66f2654d1758486bd80f16020/gsutil-5.12.tar.gz
 Source0  : https://files.pythonhosted.org/packages/91/49/505783675656ecc32c02efc22492b4d367e66f2654d1758486bd80f16020/gsutil-5.12.tar.gz
 Summary  : A command line tool for interacting with cloud storage services.
