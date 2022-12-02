@@ -4,7 +4,7 @@
 #
 Name     : pypi-gsutil
 Version  : 5.17
-Release  : 96
+Release  : 97
 URL      : https://files.pythonhosted.org/packages/89/b7/085bead094796ba4899b37822316c43b2fb1103a06cad8d84aa1afd57a60/gsutil-5.17.tar.gz
 Source0  : https://files.pythonhosted.org/packages/89/b7/085bead094796ba4899b37822316c43b2fb1103a06cad8d84aa1afd57a60/gsutil-5.17.tar.gz
 Summary  : A command line tool for interacting with cloud storage services.
@@ -112,13 +112,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1669934932
+export SOURCE_DATE_EPOCH=1669941814
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
 export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
+pypi-dep-fix.py . httplib2
 python3 setup.py build
 
 pushd ../buildavx2/
@@ -127,6 +128,7 @@ export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3 "
 export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3 "
+pypi-dep-fix.py . httplib2
 python3 setup.py build
 
 popd
@@ -134,10 +136,11 @@ popd
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-gsutil
-cp %{_builddir}/gsutil-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-gsutil/2b8b815229aa8a61e483fb4ba0588b8b6c491890 || :
-cp %{_builddir}/gsutil-%{version}/gslib/vendored/boto/LICENSE %{buildroot}/usr/share/package-licenses/pypi-gsutil/875c7866415e9e58a4c515bd052d001ac5107943 || :
-cp %{_builddir}/gsutil-%{version}/gslib/vendored/oauth2client/LICENSE %{buildroot}/usr/share/package-licenses/pypi-gsutil/a7b6feb97b476557d3d699fa1f20090fb956d662 || :
+cp %{_builddir}/gsutil-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-gsutil/2b8b815229aa8a61e483fb4ba0588b8b6c491890
+cp %{_builddir}/gsutil-%{version}/gslib/vendored/boto/LICENSE %{buildroot}/usr/share/package-licenses/pypi-gsutil/875c7866415e9e58a4c515bd052d001ac5107943
+cp %{_builddir}/gsutil-%{version}/gslib/vendored/oauth2client/LICENSE %{buildroot}/usr/share/package-licenses/pypi-gsutil/a7b6feb97b476557d3d699fa1f20090fb956d662
 python3 -tt setup.py build  install --root=%{buildroot}
+pypi-dep-fix.py %{buildroot} httplib2
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
