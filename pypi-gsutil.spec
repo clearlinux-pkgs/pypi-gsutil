@@ -4,10 +4,10 @@
 # Using build pattern: distutils3
 #
 Name     : pypi-gsutil
-Version  : 5.24
-Release  : 105
-URL      : https://files.pythonhosted.org/packages/c3/c6/d8b3b7f71a8768b6a5471240aa114a513e3ebcb394baf081b76cf1ded862/gsutil-5.24.tar.gz
-Source0  : https://files.pythonhosted.org/packages/c3/c6/d8b3b7f71a8768b6a5471240aa114a513e3ebcb394baf081b76cf1ded862/gsutil-5.24.tar.gz
+Version  : 5.25
+Release  : 106
+URL      : https://files.pythonhosted.org/packages/28/36/f5878a128414c734bdf40e056e1e52a071b12ac454943a50ed26d0ac2f56/gsutil-5.25.tar.gz
+Source0  : https://files.pythonhosted.org/packages/28/36/f5878a128414c734bdf40e056e1e52a071b12ac454943a50ed26d0ac2f56/gsutil-5.25.tar.gz
 Summary  : A command line tool for interacting with cloud storage services.
 Group    : Development/Tools
 License  : Apache-2.0 MIT
@@ -18,12 +18,16 @@ Requires: pypi-gsutil-python3 = %{version}-%{release}
 Requires: PySocks
 BuildRequires : PySocks
 BuildRequires : buildreq-distutils3
-BuildRequires : pypi(httpretty)
-BuildRequires : pypi(paramiko)
-BuildRequires : pypi(pyyaml)
-BuildRequires : pypi(requests)
-BuildRequires : pypi(rsa)
-BuildRequires : pypi(simplejson)
+BuildRequires : pypi(argcomplete)
+BuildRequires : pypi(crcmod)
+BuildRequires : pypi(fasteners)
+BuildRequires : pypi(gcs_oauth2_boto_plugin)
+BuildRequires : pypi(google_apitools)
+BuildRequires : pypi(google_reauth)
+BuildRequires : pypi(httplib2)
+BuildRequires : pypi(monotonic)
+BuildRequires : pypi(pyopenssl)
+BuildRequires : pypi(retry_decorator)
 BuildRequires : pypi(six)
 # Suppress stripping binaries
 %define __strip /bin/true
@@ -75,15 +79,9 @@ Requires: pypi(google_apitools)
 Requires: pypi(google_auth)
 Requires: pypi(google_reauth)
 Requires: pypi(httplib2)
-Requires: pypi(httpretty)
 Requires: pypi(monotonic)
-Requires: pypi(paramiko)
 Requires: pypi(pyopenssl)
-Requires: pypi(pyyaml)
-Requires: pypi(requests)
 Requires: pypi(retry_decorator)
-Requires: pypi(rsa)
-Requires: pypi(simplejson)
 Requires: pypi(six)
 
 %description python3
@@ -91,10 +89,10 @@ python3 components for the pypi-gsutil package.
 
 
 %prep
-%setup -q -n gsutil-5.24
-cd %{_builddir}/gsutil-5.24
+%setup -q -n gsutil-5.25
+cd %{_builddir}/gsutil-5.25
 pushd ..
-cp -a gsutil-5.24 buildavx2
+cp -a gsutil-5.25 buildavx2
 popd
 
 %build
@@ -102,7 +100,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1684610038
+export SOURCE_DATE_EPOCH=1687445359
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
