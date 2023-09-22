@@ -4,10 +4,10 @@
 # Using build pattern: distutils3
 #
 Name     : pypi-gsutil
-Version  : 5.25
-Release  : 106
-URL      : https://files.pythonhosted.org/packages/28/36/f5878a128414c734bdf40e056e1e52a071b12ac454943a50ed26d0ac2f56/gsutil-5.25.tar.gz
-Source0  : https://files.pythonhosted.org/packages/28/36/f5878a128414c734bdf40e056e1e52a071b12ac454943a50ed26d0ac2f56/gsutil-5.25.tar.gz
+Version  : 5.26
+Release  : 107
+URL      : https://files.pythonhosted.org/packages/b6/32/36db9c23b5a00accfc1ae3205f84eee57a5af495410c90c682702d9df395/gsutil-5.26.tar.gz
+Source0  : https://files.pythonhosted.org/packages/b6/32/36db9c23b5a00accfc1ae3205f84eee57a5af495410c90c682702d9df395/gsutil-5.26.tar.gz
 Summary  : A command line tool for interacting with cloud storage services.
 Group    : Development/Tools
 License  : Apache-2.0 MIT
@@ -89,10 +89,10 @@ python3 components for the pypi-gsutil package.
 
 
 %prep
-%setup -q -n gsutil-5.25
-cd %{_builddir}/gsutil-5.25
+%setup -q -n gsutil-5.26
+cd %{_builddir}/gsutil-5.26
 pushd ..
-cp -a gsutil-5.25 buildavx2
+cp -a gsutil-5.26 buildavx2
 popd
 
 %build
@@ -100,7 +100,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1687445359
+export SOURCE_DATE_EPOCH=1695342869
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "

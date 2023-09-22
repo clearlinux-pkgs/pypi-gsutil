@@ -1,5 +1,5 @@
 PKG_NAME := pypi-gsutil
-URL = https://files.pythonhosted.org/packages/28/36/f5878a128414c734bdf40e056e1e52a071b12ac454943a50ed26d0ac2f56/gsutil-5.25.tar.gz
+URL = https://files.pythonhosted.org/packages/b6/32/36db9c23b5a00accfc1ae3205f84eee57a5af495410c90c682702d9df395/gsutil-5.26.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
